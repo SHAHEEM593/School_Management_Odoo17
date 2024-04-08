@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--        subject data-->
+        <record id="subject_demo_english" model="school.subject">
+            <field name="name">ENGLISH</field>
+            <field name="department_id"/>
+        </record>
+        <record id="subject_demo_maths" model="school.subject">
+            <field name="name">MATHS</field>
+            <field name="department_id" ref="school_management.department_demo_highschool"/>
+        </record>
+         <record id="subject_demo_hindi" model="school.subject">
+            <field name="name">HINDI</field>
+            <field name="department_id" ref="school_management.department_demo_higherschool"/>
+        </record>
+    </data>
+</odoo>

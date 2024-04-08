@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="exam_view" model="ir.ui.view">
+        <field name="name">Exam</field>
+        <field name="model">school.exam</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <header>
+                    <field name="status" widget="statusbar" options="{'clickable':0}"
+                           statusbar_visible="draft,assigned"/>
+                    <button name="assign_exam" string="Assign" type="object" class="oe_highlight" invisible="status == 'assigned'"/>
+
+                </header>
+
+                <sheet>
+                    <group>
+                        <field name="names"/>
+                        <field name="exam_class_id"/>
+
+                    </group>
+                    <notebook>
+                        <page string="Papers">
+                            <field name="exam_papers_ids" string="Paper">
+                                <tree string="tree" editable="bottom">
+
+                                    <field name="name"/>
+                                    <field name="department_id"/>
+                                    <field name="pass_mark" string="Pass Mark"/>
+                                    <field name="max_mark" string="Max Mark"/>
+
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="exam_tree_view" model="ir.ui.view">
+        <field name="name">exam.tree.view</field>
+        <field name="model">school.exam</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="names"/>
+                <field name="exam_class_id"/>
+
+            </tree>
+        </field>
+    </record>
+</odoo>

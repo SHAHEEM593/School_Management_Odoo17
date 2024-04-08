@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--        automation rule to create a res user-->
+         <record id="action_server_res_user_base" model="ir.actions.server">
+            <field name="name">Res Creation Action</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="state">code</field>
+             <field name="code">record.user_automation_res()</field>
+        </record>
+        <record model="base.automation" id="res_user_creation_automations">
+            <field name="name">Res User Automation</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="action_server_ids" eval="[(4, ref('school_management.action_server_res_user_base'))]"/>
+            <field name="trigger">on_create</field>
+        </record>
+        <!--        automation rule to create a user-->
+         <record id="action_server_user_base" model="ir.actions.server">
+            <field name="name">User Creation Action</field>
+            <field name="model_id" ref="model_students_registration"/>
+            <field name="state">code</field>
+             <field name="code">record.user_automation()</field>
+        </record>
+        <record model="base.automation" id="user_creation_automations">
+            <field name="name">User Automation</field>
+            <field name="model_id" ref="model_students_registration"/>
+            <field name="action_server_ids" eval="[(4, ref('school_management.action_server_user_base'))]"/>
+            <field name="trigger">on_create</field>
+        </record>
+</odoo>

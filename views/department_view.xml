@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    department-->
+
+
+    <record model="ir.ui.view" id="department_view_form">
+        <field name="name">department.view.form</field>
+        <field name="model">school.department</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="head_of_department_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <!--    department tree-->
+    <record id="department_view_tree" model="ir.ui.view">
+        <field name="name">department.view.tree</field>
+        <field name="model">school.department</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="head_of_department_id"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

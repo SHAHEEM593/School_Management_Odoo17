@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+        <template id="Events">
+            <t t-call="website.layout">
+                <div id="event_request_form">
+                    <div class="container" style="position: relative;">
+                        <t t-foreach="events" t-as="eve">
+                            <t t-set="image" t-value="eve.photo"/>
+                            <div class="row">
+                                <h1 style="  position: absolute;left: 50%;">EVENT</h1>
+                                <div style="  position: absolute;left: 20%;margin-top: 50px;">
+                                    <img class="card-img-top" t-attf-src="data:image/png;base64,{{image}}"
+                                         style="padding: 0px; margin: 0px; height: 400px; width:355px;   border-radius: 25px; "/>
+                                </div>
+                                <div class="col-sm" style="position: absolute; left: 60%; margin-top: 75px;">
+                                    <div class="col-sm" >
+                                        <h3 > Name:
+                                           <span style="color:red"> <t t-esc="eve.names"/> </span>
+                                        </h3>
+                                    </div>
+                                    <br/>
+                                    <div class="col-sm">
+                                        <h3>Club:
+                                            <span style="color:red">  <t t-esc="eve.club_id.name"/></span>
+                                        </h3>
+                                    </div>
+                                    <br/>
+                                    <div class="col-sm">
+                                        <h3>Start Date:
+                                            <span style="color:red">  <t t-esc="eve.start_date"/></span>
+                                        </h3>
+                                    </div>
+                                    <br/>
+                                    <div class="col-sm">
+                                        <h3>End Date:
+                                            <span style="color:red">  <t t-esc="eve.end_date"/></span>
+                                        </h3>
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </odoo>

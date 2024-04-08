@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="club_data_wizard_view" model="ir.ui.view">
+        <field name="name">club.data.wizard.view</field>
+        <field name="model">club.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="club_id"/>
+                        <field name="students_ids" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button name="action_club_report" string="PDF Report" type="object" class="oe_highlight"/>
+
+                        <button name="action_club_excel" string=" Print Excel" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="club_data_wizard_action" model="ir.actions.act_window">
+        <field name="name">Club Data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">club.data</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="club_data_wizard_view"/>
+    </record>
+</odoo>

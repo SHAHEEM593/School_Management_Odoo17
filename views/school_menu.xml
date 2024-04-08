@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    actions-->
+    <record id="department_action" model="ir.actions.act_window">
+        <field name="name">Department</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--  class action  -->
+    <record id="manage_class_actions" model="ir.actions.act_window">
+        <field name="name">Class</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.class</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--    subject action-->
+    <record id="manage_subject_actions" model="ir.actions.act_window">
+        <field name="name">Subject</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.subject</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--    registration action-->
+    <record id="registration_action" model="ir.actions.act_window">
+        <field name="name">Registration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">students.registration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--    academic year-->
+    <record id="academic_year_action" model="ir.actions.act_window">
+        <field name="name">Academic Year</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">academic.year</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--    club action-->
+    <record id="club_action" model="ir.actions.act_window">
+        <field name="name">Club</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.club</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--    event action-->
+    <record id="event_action" model="ir.actions.act_window">
+        <field name="name">Event</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--    teacher actions-->
+    <record id="teacher_action" model="ir.actions.act_window">
+        <field name="name">Teacher</field>
+        <field name="domain">[('partner','=','teacher')]</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--    office staff action-->
+    <record id="office_staff_action" model="ir.actions.act_window">
+        <field name="name">Staff</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="domain">[('partner','=','office_staff')]</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--    leave action-->
+    <record id="leave_action" model="ir.actions.act_window">
+        <field name="name">Leave</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.leave</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--    menu action-->
+
+    <record id="exam_action" model="ir.actions.act_window">
+        <field name="name">Exam</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.exam</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--    student action-->
+
+    <record id="student_action" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="domain">[('status','=','registration')]</field>
+        <field name="res_model">students.registration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--    Main menu-->
+    <menuitem id="school_menu" name="School Management"/>
+
+    <!--configuration menu-->
+    <menuitem id="school_configuration" name="Configuration" parent="school_menu" sequence="70"
+              groups="school_office_staff_group"/>
+
+    <!--    department menu-->
+    <menuitem id="school_department" name="Department" parent="school_configuration" action="department_action"/>
+
+    <!--    class menu-->
+    <menuitem id="manage_school_class" name="Class" parent="school_configuration" action="manage_class_actions"/>
+
+    <!--    subject menu-->
+    <menuitem id="manage_school_subject" name="Subject" parent="school_configuration" action="manage_subject_actions"/>
+
+    <!--    acedemic year-->
+    <menuitem id="academic_year_menu" name="Acedemic Year" parent="school_configuration" action="academic_year_action"/>
+
+    <!--    registration-->
+    <menuitem id="student_view" name="Student " parent="school_menu"/>
+    <menuitem id="registration" name="Registration" action="registration_action" sequence="10" parent="student_view"/>
+
+    <!--    club menu-->
+    <menuitem id="club_menu" name="Club" parent="school_configuration" action="club_action"/>
+
+    <!--    event menu-->
+    <menuitem id="event_menu" name="Event" parent="school_configuration" action="event_action"/>
+
+    <!--    employee menu-->
+    <menuitem id="employee_menu_root" name="Employee" parent="school_menu" sequence="20"
+              groups="school_office_staff_group"/>
+    <menuitem id="employee_teacher" name="Teacher" action="teacher_action" parent="employee_menu_root"/>
+    <menuitem id="office_staff" name="Office Staff" action="office_staff_action" parent="employee_menu_root"/>
+    <menuitem id="student" name="Students" action="student_action" parent="employee_menu_root"/>
+
+    <!--    leave-->
+    <menuitem id="leave_root" name="Leave" parent="school_menu" sequence="50"/>
+    <menuitem id="leaves" name="Leave" action="leave_action" parent="leave_root"/>
+
+    <!--    exam-->
+    <menuitem id="exam_menu_root" name="Exam" parent="school_menu" sequence="45"/>
+    <menuitem id="exam_submenu" name="Exam" action="exam_action" parent="exam_menu_root"/>
+
+<!--    report-->
+    <menuitem id="report_menu" name="Report" parent="school_menu"  groups="school_office_staff_group"/>
+    <menuitem id="leave_information" name="Leave information" action="leave_report_wizard_action" parent="report_menu"/>
+    <menuitem id="event_details_menu" name="Event Details" action="event_details_wizard_action" parent="report_menu"/>
+    <menuitem id="club_data_menu" name="Club Data" action="club_data_wizard_action" parent="report_menu"/>
+    <menuitem id="student_information_menu" name="Student Information" action="student_information_wizard_action" parent="report_menu"/>
+    <menuitem id="exam_details_menu" name="Exam Details" action="exam_details_wizard_action" parent="report_menu"/>
+
+</odoo>

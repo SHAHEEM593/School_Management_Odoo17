@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="event_details_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="event" t-value="data['report']"/>
+                <t t-set="dates" t-value="data['date']"/>
+                <h6>Printed On:</h6>
+                <span t-esc="dates"/>
+                <div class="page">
+                    <div class="text-center">
+                        <h1>EVENT DETAILS</h1>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Responsible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="event" t-as="eve">
+                            <tr>
+                                <td>
+                                    <span t-esc="eve['names']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="eve['status']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="eve['start_date']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="eve['end_date']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="eve['name']"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>

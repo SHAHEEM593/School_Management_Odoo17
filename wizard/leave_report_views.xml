@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="leave_report_wizard_view" model="ir.ui.view">
+        <field name="name">leave.report.wizard.view</field>
+        <field name="model">leave.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date_type"/>
+                            <field name="custom_start_date" invisible="date_type != 'custom' "/>
+                            <field name="custom_end_date"  invisible="date_type != 'custom' "/>
+                        </group>
+                        <group>
+                            <field name="class_id"/>
+                            <field name="students_ids" widget="many2many_tags" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_leave_report" string="PDF Report" type="object" class="oe_highlight"/>
+
+                        <button name="action_leave_excel" string=" Print Excel" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="leave_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Leave Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">leave.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="leave_report_wizard_view"/>
+    </record>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="Leaves">
+        <t t-call="website.layout">
+            <div id="leave_tree_request_form">
+                <!--                <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">-->
+                <div class="container">
+                    <h1>Leaves</h1>
+
+                    <div class="row">
+                        <form id="create_leave_action" action="/leave">
+                            <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                <div style="width: 200px;" class="s_website_form_label"/>
+                                <input type="submit" class="btn btn-primary" value="Create"/>
+                            </div>
+                            <table class="o_list_table position-relative table table-sm o_list_table_ungrouped table-striped o_portal_my_doc_table mb-0">
+                                <thead>
+                                    <tr class="active">
+                                        <th>Student</th>
+                                        <th>Class</th>
+                                        <th>Reason</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="leave" t-as="leaves">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="leaves.student_id.first_name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="leaves.school_class_id.name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="leaves.reason"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="leaves.start_date"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="leaves.end_date"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <!--                </section>-->
+            </div>
+        </t>
+    </template>
+</odoo>

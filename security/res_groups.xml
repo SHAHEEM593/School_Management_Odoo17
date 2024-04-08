@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--        category-->
+        <record id="school_management" model="ir.module.category">
+            <field name="name">School Management</field>
+            <field name="description">User access level for school management module</field>
+            <field name="sequence">20</field>
+        </record>
+        <!--            student group-->
+        <record id="school_student_group" model="res.groups">
+            <field name="name">Student</field>
+            <field name="category_id" ref="school_management"/>
+        </record>
+        <!--        teacher group-->
+        <record id="school_teacher_group" model="res.groups">
+            <field name="name">Teacher</field>
+            <field name="category_id" ref="school_management"/>
+            <field name="implied_ids" eval="[(4, ref('school_student_group'))]"/>
+        </record>
+        <!--        staff group-->
+        <record id="school_office_staff_group" model="res.groups">
+            <field name="name">Office Staff</field>
+            <field name="category_id" ref="school_management"/>
+            <field name="implied_ids" eval="[(4, ref('school_teacher_group'))]"/>
+        </record>
+
+
+    </data>
+</odoo>

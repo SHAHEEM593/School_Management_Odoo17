@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="Leave">
+        <t t-call="website.layout">
+            <div id="leave_request_form">
+                <div class="container">
+                    <form id="request_form" method="post" action="/leave/create">
+                        <br/>
+                        <br/>
+                        <!--     START DATE-->
+                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                             data-type="text" data-name="Field">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                       style="width: 200px">
+                                    <span class="s_website_form_label_content">Start Date</span>
+                                    <span class="s_website_form_mark">*</span>
+                                </label>
+                                <div class="col-sm">
+                                    <input type="date" id="start_date" name="start_date"
+                                           class="form-control s_website_form_input" required=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <!--      END DATE-->
+                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                             data-type="text" data-name="Field">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                       style="width: 200px">
+                                    <span class="s_website_form_label_content">End Date</span>
+                                    <span class="s_website_form_mark">*</span>
+                                </label>
+                                <div class="col-sm">
+                                    <input type="date" id="end_date" name="end_date"
+                                           class="form-control s_website_form_input" required=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <!--                            total days-->
+                        <div class="form-group col-12 s_website_form_field" data-type="char"
+                             data-name="Field">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                       style="width: 200px">
+                                    <span class="s_website_form_label_content">Total Days</span>
+                                </label>
+                                <div class="col-sm">
+                                    <input type="number"
+                                           class="form-control s_website_form_input" id="total_days" name="total_days" readonly=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <!--      reason-->
+                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                             data-type="text" data-name="Field">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                       style="width: 200px">
+                                    <span class="s_website_form_label_content">Reason</span>
+                                    <span class="s_website_form_mark">*</span>
+                                </label>
+                                <div class="col-sm">
+                                    <textarea class="form-control s_website_form_input"
+                                              name="reason" required=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+
+                        <!--     form submit-->
+                        <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                            <div style="width: 200px;" class="s_website_form_label"/>
+                            <input type="submit" class="btn btn-primary" value="submit"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

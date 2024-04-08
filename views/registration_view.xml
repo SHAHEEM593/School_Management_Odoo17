@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    registration form view-->
+    <record id="registration_form_view" model="ir.ui.view">
+        <field name="name">registration form</field>
+        <field name="model">students.registration</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar" options="{'clickable':0}"
+                           statusbar_visible="draft,registration,sale_order" />
+                    <button name="confirm_register" string="Confirm" type="object" class="oe_highlight"
+                            invisible="status != 'draft'"/>
+                    <button name="back_to_draft" string="Draft" type="object"  groups="school_management.school_office_staff_group"
+                            invisible="status != 'registration'"/>
+
+
+                </header>
+
+                <sheet>
+
+                    <field name="photo" string="" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference"/>
+                        </h1>
+                    </div>
+
+                    <group>
+
+                        <group>
+                            <field name="first_name" readonly="status in['registration']" string="First Name"/>
+                            <field name="last_name" readonly="status in['registration']"/>
+                            <field name="father_name" readonly="status in ['registration']"/>
+                            <field name="mother_name" readonly="status in['registration']"/>
+                            <field name="communication_address" readonly="status in['registration']"/>
+                            <field name="is_it_a_permanent_address"/>
+                            <field name="permanent_address" invisible="is_it_a_permanent_address==True"/>
+                            <field name="student_class_id" string="Class"/>
+                            <field name="leave_id"/>
+                            <field name="user_id"/>
+
+                        </group>
+
+                        <group>
+                            <field name="email" widget="email"/>
+                            <field name="phone" widget="phone"/>
+                            <field name="dob" readonly="status in['registration']"/>
+                            <field name="age" string="AGE"/>
+                            <field name="active" readonly="status in['registration']"/>
+                            <field name="gender"/>
+                            <field name="registration_date"/>
+                            <field name="attendance" string="Present?"/>
+                            <field name="clubs_ids" widget="many2many_tags"/>
+                            <field name="events_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Internal Notes">
+                            <field name="notes"/>
+                        </page>
+
+                        <page string="Academic Info">
+
+                            <group>
+                                <group>
+
+                                    <field name="previous_department"
+                                           string="Previous academic department "/>
+
+                                    <field name="multi_school_id" ref="base.main_company"/>
+                                </group>
+                                <group>
+
+                                    <field name="previous_class" string="Previous class?"/>
+                                </group>
+                            </group>
+
+
+                        </page>
+
+                        <page string="Other Info">
+
+                            <group>
+                                <field name="tc"/>
+                                <field name="aadhaar_number"/>
+
+                            </group>
+
+
+                        </page>
+                        <page string="Exams">
+                            <field name="exam_student_ids" readonly="True">
+                                <tree string="exam_tree" editable="bottom">
+                                    <field name="names"/>
+                                    <field name="exam_papers_ids" widget="many2many_tags"/>
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- chatter-->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <!--registration tree view-->
+    <record id="registration_tree_view" model="ir.ui.view">
+        <field name="name">registration tree view</field>
+        <field name="model">students.registration</field>
+        <field name="arch" type="xml">
+            <tree string="tree_view" decoration-danger="attendance == False">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="communication_address"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="gender"/>
+                <field name="dob"/>
+                <field name="attendance"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <!--search view-->
+    <record id="registration_search_view" model="ir.ui.view">
+        <field name="name">registration.search.view</field>
+        <field name="model">students.registration</field>
+        <field name="arch" type="xml">
+            <search string="search">
+                <field name="first_name" string="Name"/>
+                <field name="clubs_ids" string="Club"/>
+                <field name="full_name" string="Full Name"/>
+                <field name="age" string="Age"/>
+                <filter name="active" string="Archived" domain="[('active','=',False)]"/>
+                <filter name="gender" string="Male" domain="[('gender','=','male')]"/>
+                <filter name="gender" string="FEMALE" domain="[('gender','=','female')]"/>
+                <filter name="club" string="CLUB" context="{'group_by':'clubs_ids'}"/>
+                <filter name="gender" string="Gender" context="{'group_by':'gender'}"/>
+                <filter name="class" string="Class" context="{'group_by':'student_class_id'}"/>
+            </search>
+        </field>
+    </record>
+</odoo>
+
+
+

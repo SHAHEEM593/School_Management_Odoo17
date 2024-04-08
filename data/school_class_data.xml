@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--                class data-->
+        <record id="subject_demo_lkg" model="school.class">
+            <field name="name">LKG</field>
+            <field name="departments_id" ref="school_management.department_demo_highschool"/>
+            <field name="school_id" ref="base.main_company"/>
+        </record>
+        <record id="subject_demo_ukg" model="school.class">
+            <field name="name">UKG</field>
+            <field name="departments_id" ref="school_management.department_demo_highschool"/>
+            <field name="school_id" ref="base.main_company"/>
+        </record>
+        <record id="subject_demo_tenth" model="school.class">
+            <field name="name">TENTH</field>
+            <field name="departments_id" ref="school_management.department_demo_highschool"/>
+            <field name="school_id" ref="base.main_company"/>
+        </record>
+        <record id="subject_demo_plus_one" model="school.class">
+            <field name="name">PLUS ONE</field>
+            <field name="departments_id" ref="school_management.department_demo_higherschool"/>
+            <field name="school_id" ref="base.main_company"/>
+        </record>
+        <record id="subject_demo_plus_two" model="school.class">
+            <field name="name">PLUS TWO</field>
+            <field name="departments_id" ref="school_management.department_demo_higherschool"/>
+            <field name="school_id" ref="base.main_company"/>
+        </record>
+
+</odoo>

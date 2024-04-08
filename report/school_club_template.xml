@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="school_club_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="events" t-value="data['events']"/>
+                <t t-set="club_stud" t-value="data['club']"/>
+                <t t-set="dates" t-value="data['date']"/>
+                <t t-set="stud" t-value="data['students']"/>
+                <t t-set="counts" t-value="data['count']"/>
+                <t t-set="names" t-value="data['name']"/>
+
+                <h6>Printed On:</h6>
+                <span t-esc="dates"/>
+                <t t-if="count != 1">
+                    <t t-foreach="club_stud" t-as="club_st">
+                        <table class="table">
+                            <thead>
+                                <div class="page">
+                                    <div class="text-center">
+                                        <h1>
+                                            <span t-esc="club_st"/>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Phone</th>
+                                    <th>Gender</th>
+                                    <th>Dob</th>
+                                    <th>Class</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="stud" t-as="club">
+                                    <t t-if="club_st == club['club']">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="club['first_name']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="club['phone']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="club['gender']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="club['dob']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="club['namez']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </t>
+                <t t-if="count == 1">
+                    <t t-foreach="names" t-as="student">
+                        <h3>Name:
+                            <span t-esc="student"/>
+                        </h3>
+                    </t>
+                    <table class="table">
+                        <thead>
+                            <div class="page">
+                                <div class="text-center">
+                                    <h1>Club
+                                    </h1>
+                                </div>
+                            </div>
+                            <th>Name</th>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="club_stud" t-as="club">
+                                <tr>
+                                    <td>
+                                        <span t-esc="club"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+
+                <table class="table">
+                    <thead>
+                        <div class="page">
+                            <div class="text-center">
+                                <h1>Events</h1>
+                            </div>
+                        </div>
+                        <tr>
+                            <th>Club</th>
+                            <th>Events</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="events" t-as="eve">
+                            <tr>
+                                <td>
+                                    <span t-esc="eve['name']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="eve['names']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="eve['start_date']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="eve['end_date']"/>
+                                </td>
+
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>

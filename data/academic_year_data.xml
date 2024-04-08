@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <!--        academic year-->
+        <record id="academic_year_2022_demo_id" model="academic.year">
+            <field name="name">2023-2024</field>
+        </record>
+        <record id="academic_year_2022__demo_id" model="academic.year">
+            <field name="name">2020-2022</field>
+        </record>
+        <record id="academic_year_2018_demo_id" model="academic.year">
+            <field name="name">2018-2020</field>
+        </record>
+</odoo>

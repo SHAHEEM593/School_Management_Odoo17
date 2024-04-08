@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="student_information_wizard_view" model="ir.ui.view">
+        <field name="name">student.information.wizard.view</field>
+        <field name="model">student.information</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_id"/>
+                        <field name="department_id"/>
+                    </group>
+                    <footer>
+                        <button name="action_students_report" string="PDF Report" type="object" class="oe_highlight"/>
+                        <button name="action_student_information_excel" string=" Print Excel" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+
+
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="student_information_wizard_action" model="ir.actions.act_window">
+        <field name="name">Student Information</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">student.information</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="student_information_wizard_view"/>
+    </record>
+</odoo>

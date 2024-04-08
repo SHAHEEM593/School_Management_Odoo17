@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="event_snippet" name="Event  Snippet">
+        <section class="oe_structure container event_snippet">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center py-5">
+                        <h1 class="h1">Events</h1>
+                        <div class="h3" style="text-align:center">Latest Events</div>
+                        <div id="event_snip">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="external_snippets" inherit_id="website.snippets" priority="8">
+        <xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="school_management.event_snippet" t-thumbnail="school_management/static/img/settings-icon.svg"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    leave-->
+    <record id="leave_form_view" model="ir.ui.view">
+        <field name="name">leave.form.view</field>
+        <field name="model">school.leave</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="school_class_id"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date" invisible="half_day == True"/>
+                            <field name="total_days"/>
+                            <field name="half_day"/>
+                            <field name="reason"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="leave_school_tree" model="ir.ui.view">
+        <field name="name">leave.school.tree</field>
+        <field name="model">school.leave</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id"/>
+                <field name="school_class_id"/>
+                <field name="reason"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

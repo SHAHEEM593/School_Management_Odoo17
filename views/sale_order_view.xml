@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    sale order status-->
+
+    <record id="sale_action_button" model="ir.ui.view">
+        <field name="name">sale.action.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button name="status_admitted_action" type="object" string="Admitted"
+                        invisible="state not in ['draft', 'sent', 'sale'] or not id" data-hotkey="a"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

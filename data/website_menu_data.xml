@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    student tree-->
+     <record id="website_menu_student_tree" model="website.menu">
+        <field name="name">Students</field>
+        <field name="url">/student</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">30</field>
+    </record>
+<!--    event tree-->
+    <record id="website_menu_event_tree" model="website.menu">
+        <field name="name">Events</field>
+        <field name="url">/event_tree</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">30</field>
+    </record>
+    <!--    leave tree-->
+    <record id="website_menu_leave_tree" model="website.menu">
+        <field name="name">Leaves</field>
+        <field name="url">/leave_tree</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">30</field>
+    </record>
+</odoo>

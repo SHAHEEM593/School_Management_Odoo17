@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data >
+        <!--        department data-->
+        <record id="department_demo_pre_school" model="school.department">
+            <field name="name">PRE SCHOOL</field>
+            <field name="head_of_department_id" ref="base.res_partner_12"/>
+        </record>
+
+        <record id="department_demo_highschool" model="school.department">
+            <field name="name">HIGH SCHOOL</field>
+            <field name="head_of_department_id" ref="base.res_partner_2"/>
+        </record>
+
+        <record id="department_demo_higherschool" model="school.department">
+            <field name="name">HIGHER SCHOOL</field>
+            <field name="head_of_department_id" ref="base.res_partner_address_27"/>
+        </record>
+
+    </data>
+</odoo>

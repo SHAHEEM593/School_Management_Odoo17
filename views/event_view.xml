@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    event-->
+    <record id="event_form_view" model="ir.ui.view">
+        <field name="name">event.form.view</field>
+        <field name="model">school.event</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar" options="{'clickable':0}"
+                           statusbar_visible="draft,registration,in_progress,completed,cancelled"/>
+                </header>
+                <sheet>
+                    <field name="photo" string="" widget="image" class="oe_avatar"/>
+                    <group>
+                        <group>
+                            <field name="names"/>
+                            <field name="club_id"/>
+                            <field name="active"/>
+                            <field name="event_template"/>
+                        </group>
+                        <group>
+                            <field name="start_date" string="Start Date"/>
+                            <field name="end_date" string="End Date"/>
+                            <field name="responsible_id" string="responsible"/>
+                        </group>
+                        <!-- chatter-->
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="activity_ids" widget="mail_activity"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </group>
+                </sheet>
+
+
+            </form>
+        </field>
+    </record>
+    <record id="event_tree_view" model="ir.ui.view">
+        <field name="name">event.tree.view</field>
+        <field name="model">school.event</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="names"/>
+                <field name="club_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="event_search_view" model="ir.ui.view">
+        <field name="name">event.search.view</field>
+        <field name="model">school.event</field>
+        <field name="arch" type="xml">
+            <search string="search">
+                <filter name="active" string="Archived" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+</odoo>

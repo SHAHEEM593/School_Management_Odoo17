@@ -1,0 +1,50 @@
+<templates>
+    <t t-name="school_management.event_snipped_carousel">
+        <div id="course_carousel" class="container carousel slide" data-bs-ride="carousel"
+             t-att-data-bs-interval="interval">
+            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                <t t-foreach="data" t-as="datas" t-key="data.id">
+                    <div t-att-class="datas.is_active ? 'carousel-item active' : 'carousel-item'">
+                        <div class="row">
+                            <t t-foreach="datas" t-as="event" t-key="datas.id">
+                                <div class="block span3 col-3">
+                                    <a t-attf-href="/events/{{event.id}}">
+                                        <div class="card-group">
+                                            <img class="card-img-top" t-attf-src="data:image/png;base64,{{event.photo}}"
+                                                 style="padding: 0px; margin: 0px; height: 250px; width:305px;"/>
+                                        </div>
+                                        <div class="card">
+                                            <h5 class="mb-0">
+                                                <t t-esc="event.names"/>
+                                            </h5>
+                                        </div>
+                                    </a>
+                                    <a t-attf-href="#course_carousel" class="carousel-control-prev" data-bs-slide="prev"
+                                       role="button"
+                                       aria-label="Previous" title="Previous">
+
+                                        <span class="fa fa-chevron-circle-left fa-2x" style="color:black"/>
+                                        <span class="visually-hidden">Previous</span>
+
+                                    </a>
+                                    <a t-attf-href="#course_carousel" class="carousel-control-next" data-bs-slide="next"
+                                       role="button"
+                                       aria-label="Next" title="Next">
+
+                                        <span class="fa fa-chevron-circle-right fa-2x" style="color:black"/>
+
+                                        <span class="visually-hidden">Next</span>
+                                    </a>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                </t>
+
+            </div>
+
+        </div>
+
+    </t>
+</templates>

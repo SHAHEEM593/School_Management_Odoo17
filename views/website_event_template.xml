@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="Event">
+        <t t-call="website.layout">
+            <div id="event_request_form">
+                <div class="container">
+                    <form id="request_form" method="post" action="/events_create">
+                        <br/>
+                        <br/>
+                        <!--                            name-->
+                        <div class="s_website_form_rows row s_col_no_bgcolor">
+                            <div class="form-group col-12 s_website_form_field s_website_form_required">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Name</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <input type="text"
+                                               class="form-control s_website_form_input" name="name"
+                                               required=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <br/>
+                        <br/>
+                        <!--                            club-->
+                        <div class="s_website_form_rows row s_col_no_bgcolor">
+                            <div class="form-group col-12 s_website_form_field s_website_form_required">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-sm-auto s_website_form_label"
+                                           style="width: 200px">
+                                        <span class="s_website_form_label_content">Club</span>
+                                    </label>
+                                    <div class="col-sm">
+                                        <select name="event_id" id="event_id"
+                                                class="form-control link-style">
+                                            <t t-foreach="club" t-as="club">
+                                                <option t-att-value="club.id">
+                                                    <t t-esc="club.name" t-att-value="club.id"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+
+                        <!--                            START DATE-->
+                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                             data-type="text" data-name="Field">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                       style="width: 200px">
+                                    <span class="s_website_form_label_content">Start Date</span>
+                                    <span class="s_website_form_mark">*</span>
+                                </label>
+                                <div class="col-sm">
+                                    <input type="date" id="start_date" name="dob"
+                                           class="form-control s_website_form_input" required=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <!--                            END DATE-->
+                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                             data-type="text" data-name="Field">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                       style="width: 200px">
+                                    <span class="s_website_form_label_content">End Date</span>
+                                    <span class="s_website_form_mark">*</span>
+                                </label>
+                                <div class="col-sm">
+                                    <input type="date" id="end_date" name="dob"
+                                           class="form-control s_website_form_input" required=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <!--                                form submit-->
+                        <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                            <div style="width: 200px;" class="s_website_form_label"/>
+                            <input type="submit" class="btn btn-primary" value="submit"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

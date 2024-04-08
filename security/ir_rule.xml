@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!--student record rule-->
+        <record id="student_rule" model="ir.rule">
+            <field name="name">Students can read own document</field>
+            <field ref="model_students_registration" name="model_id"/>
+            <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('school_management.school_student_group'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>
+<!--        office staff record rules-->
+        <record id="office_staff_rule" model="ir.rule">
+            <field name="name">Office staff can read and create</field>
+            <field ref="model_students_registration" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('school_management.school_office_staff_group'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="active" eval="True"/>
+        </record>
+        <!--        teacher record rule-->
+        <record id="teacher_rule" model="ir.rule">
+            <field name="name">Teacher can read and write</field>
+            <field ref="model_students_registration" name="model_id"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('school_management.school_teacher_group'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <!--        company rule-->
+        <record id="ir_rule_company_record" model="ir.rule">
+            <field name="name">Company Records</field>
+            <field name="model_id" ref="model_students_registration"/>
+            <field name="domain_force">[('multi_school_id', 'in', company_ids)]</field>
+            <field name="global" eval="True"/>
+        </record>
+    </data>
+</odoo>

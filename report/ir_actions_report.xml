@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    event detail report action-->
+    <record id="event_detail_report_action" model="ir.actions.report">
+        <field name="name">School Events</field>
+        <field name="model">school.event</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_management.event_details_template</field>
+        <field name="report_file">school_management.event_details_template</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!--    exam detail report actions-->
+    <record id="exam_detail_report_action" model="ir.actions.report">
+        <field name="name">School Exam</field>
+        <field name="model">school.exam</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_management.exam_detail_template</field>
+        <field name="report_file">school_management.exam_detail_template</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!--    leave information report action-->
+    <record id="leave_information_report_action" model="ir.actions.report">
+        <field name="name">Leave Information</field>
+        <field name="model">school.leave</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_management.leave_information_template</field>
+        <field name="report_file">school_management.leave_information_template</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!--    school club action report-->
+    <record id="school_club_report_action" model="ir.actions.report">
+        <field name="name">School Club</field>
+        <field name="model">school.club</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_management.school_club_template</field>
+        <field name="report_file">school_management.school_club_template</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!--    student information action report-->
+    <record id="student_information_report_action" model="ir.actions.report">
+        <field name="name">Student Information</field>
+        <field name="model">students.registration</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_management.student_information_template</field>
+        <field name="report_file">school_management.student_information_template</field>
+        <field name="binding_type">report</field>
+    </record>
+
+
+</odoo>

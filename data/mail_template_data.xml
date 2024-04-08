@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+<!--    email template-->
+        <record id="event_mail_template" model="mail.template">
+            <field name="name">EMAIL TEMPLATE EVENT</field>
+
+            <field name="model_id" ref="school_management.model_students_registration"/>
+            <field name="email_from">"{{object.events_ids.responsible_id.email}}</field>
+
+            <field name="email_to">"{{ object.email }}"</field>
+
+            <field name="subject">"Event Remainder"</field>
+
+            <field name="body_html" type="html">
+
+                <div style="margin: 0px; padding: 0px;">
+
+                    <div style="margin: 0px; padding: 0px;">
+
+                        <p style="margin: 0px; padding: 0px; font-size: 13px;">
+
+                            Dear<t t-out="object.full_name"/>,
+
+                            <br/>
+
+                            <br/>
+                            <t t-out="object.events_ids.name"/>
+                            <br/>
+                            <t t-out="object.events_ids.start_date"/>
+                            <br/>
+                            <t t-out="object.events_ids.end_date"/>
+                            <br/>
+                            <t t-out="object.events_ids.total_days"/>
+                            <br/>
+                            <t t-out="object.events_ids.event_template"/>
+
+                            Good job, this is our first e-mail template yay!
+
+                            <br/>
+
+                            <br/>
+
+                            Regards,
+
+                            <br/>
+
+                            <!--                            <t t-out="object.events_ids.responsible_id.company_id.name"/>-->
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </field>
+
+        </record>
+    </data>
+</odoo>

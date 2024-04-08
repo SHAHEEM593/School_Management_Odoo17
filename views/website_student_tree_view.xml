@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="Students">
+        <t t-call="website.layout">
+            <div id="student_tree_request_form">
+                <div class="container">
+                    <h1>Students</h1>
+                    <div class="row">
+                        <form id="create_student_action" action="/students">
+                            <table class="o_list_table position-relative table table-sm o_list_table_ungrouped table-striped o_portal_my_doc_table mb-0">
+                                <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                    <div style="width: 200px;" class="s_website_form_label"/>
+                                    <input type="submit" class="btn btn-primary" value="Create"/>
+                                </div>
+                                <thead>
+                                    <tr class="active">
+                                        <th>First Name</th>
+                                        <th >Last Name</th>
+                                        <th >Address</th>
+                                        <th >Dob</th>
+                                        <th >Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="students" t-as="stud">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="stud.first_name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="stud.last_name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="stud.communication_address"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="stud.dob"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="stud.phone"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

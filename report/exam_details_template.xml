@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="exam_detail_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="exams" t-value="data['report']"/>
+                <t t-set="dates" t-value="data['date']"/>
+                <h6>Printed On:</h6>
+                <span t-esc="dates"/>
+                <div class="page">
+                    <div class="text-center">
+                        <h1>Exam DETAILS</h1>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Student</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="exams" t-as="exam">
+                            <tr>
+                                <td>
+                                    <span t-esc="exam['names']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="exam['name']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="exam['first_name']"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>
